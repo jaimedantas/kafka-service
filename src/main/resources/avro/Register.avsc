@@ -1,0 +1,8 @@
+{"namespace": "com.jaimedantas",
+  "type": "record",
+  "name": "Register",
+  "fields": [
+    {"name": "id", "type": "string"},
+    {"name": "status", "type": "string"}
+  ]
+}
