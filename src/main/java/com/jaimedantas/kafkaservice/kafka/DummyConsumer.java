@@ -17,11 +17,16 @@ public class DummyConsumer {
     @Autowired
     DummyProducer producer;
 
-    @KafkaListener(topics = "brazil")
+    @KafkaListener(topics = "topic-jaime4")
     public void listen(@Payload Payment message) {
         LOG.info("received message='{}'", message.toString());
         Register register = new Register();
         register.setId(message.getId());
+        try {
+            Thread.sleep(6000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         register.setStatus("ok");
         producer.send(register);
     }
